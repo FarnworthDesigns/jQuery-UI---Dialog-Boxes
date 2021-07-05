@@ -1,0 +1,80 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>jQuery UI - Dialog Boxes</title>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/jquery-ui.min.css">
+<link rel="stylesheet" href="css/styles.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="js/jquery-ui.min.js"></script>
+<script>
+$(document).ready(function() {
+  $("#hello").dialog({
+    hide: {effect: "explode", delay: 250, duration: 1000, easing: "easeInQuad"},
+    buttons: {
+      "Confirm": function() {
+        $(this).dialog("destroy");
+        $("#userConfirm").dialog("open");
+      },
+      "Cancel": function() {    
+        $("#userCancel").dialog("open", "modal", true);
+      }
+    }  // end buttons
+  }); // end dialog
+});
+</script>
+</head>
+
+<body>
+  <header>
+		<h1>jQuery UI - Dialog Boxes</h1>
+	</header>
+  <section>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque rhoncus, ante id rhoncus congue, nulla justo varius nisi, vitae viverra metus turpis vitae turpis. Etiam eget varius velit. Nam orci nisl, volutpat a convallis eget, mollis quis risus. Pellentesque eu orci lorem. Ut rutrum consequat ligula, id iaculis nulla rutrum sit amet. Morbi a sem et nibh pretium mollis vel a metus. Nam sit amet sem accumsan, posuere orci at, tristique ante. Duis tincidunt purus id leo malesuada fringilla. Vestibulum scelerisque, mauris ac tempor feugiat, nunc massa efficitur quam, at ornare sem leo et nisi. Fusce lacinia sodales mauris et varius.</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque rhoncus, ante id rhoncus congue, nulla justo varius nisi, vitae viverra metus turpis vitae turpis. Etiam eget varius velit. Nam orci nisl, volutpat a convallis eget, mollis quis risus. Pellentesque eu orci lorem. Ut rutrum consequat ligula, id iaculis nulla rutrum sit amet. Morbi a sem et nibh pretium mollis vel a metus. Nam sit amet sem accumsan, posuere orci at, tristique ante. Duis tincidunt purus id leo malesuada fringilla. Vestibulum scelerisque, mauris ac tempor feugiat, nunc massa efficitur quam, at ornare sem leo et nisi. Fusce lacinia sodales mauris et varius.</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque rhoncus, ante id rhoncus congue, nulla justo varius nisi, vitae viverra metus turpis vitae turpis. Etiam eget varius velit. Nam orci nisl, volutpat a convallis eget, mollis quis risus. Pellentesque eu orci lorem. Ut rutrum consequat ligula, id iaculis nulla rutrum sit amet. Morbi a sem et nibh pretium mollis vel a metus. Nam sit amet sem accumsan, posuere orci at, tristique ante. Duis tincidunt purus id leo malesuada fringilla. Vestibulum scelerisque, mauris ac tempor feugiat, nunc massa efficitur quam, at ornare sem leo et nisi. Fusce lacinia sodales mauris et varius.</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque rhoncus, ante id rhoncus congue, nulla justo varius nisi, vitae viverra metus turpis vitae turpis. Etiam eget varius velit. Nam orci nisl, volutpat a convallis eget, mollis quis risus. Pellentesque eu orci lorem. Ut rutrum consequat ligula, id iaculis nulla rutrum sit amet. Morbi a sem et nibh pretium mollis vel a metus. Nam sit amet sem accumsan, posuere orci at, tristique ante. Duis tincidunt purus id leo malesuada fringilla. Vestibulum scelerisque, mauris ac tempor feugiat, nunc massa efficitur quam, at ornare sem leo et nisi. Fusce lacinia sodales mauris et varius.</p>
+    
+    <div id="hello" title="Hello World!">
+      <p>This dialog is actually a div, that’s placed on the page using absolute positioning.</p>
+      <p>Try dragging the dialog around the screen.</p>
+    </div>
+    
+    <div id="userConfirm" title="Thank You!">
+      <p>Your payment has been submitted.</p>
+    </div>
+    
+    <div id="userCancel" title="Confirmation">
+      <p>Are you sure you want to cancel?</p>
+    </div>
+  </section>
+
+  <!-- JavaScript -->
+  <script>
+    $("#userConfirm").dialog({
+      autoOpen: false,
+		  buttons: {
+        "Close": function() {
+          $(this).dialog("close");
+        }
+      }  // end button
+	  });
+  </script>
+  <script>
+    $("#userCancel").dialog({
+      autoOpen: false,
+      modal: true,
+		  buttons: {
+        "Yes": function() {
+          $(this).dialog("close");
+          $("#hello").dialog("close");
+        },
+        "No": function() {    
+          $(this).dialog("close");
+        }
+      }  // end buttons
+	  });
+  </script>
+</body>
+</html>
